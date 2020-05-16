@@ -1,8 +1,10 @@
 package jerarquia;
 
 public class DatosCliente {
+	
 	private String Nombre;
 	private String Rut;
+	
 	public String getNombre() {
 		return Nombre;
 	}

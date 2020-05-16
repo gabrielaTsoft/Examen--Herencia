@@ -33,7 +33,7 @@ public class MedioDeAlojamiento {
 		this.valorBaseNoche = valorBaseNoche;
 	}
 	
-	
+	//Constructor
 	public MedioDeAlojamiento(DatosCliente cliente, int cant_noches, String[] tipo_temporada, double valorBaseNoche) {
 		
 		this.cliente = cliente;
@@ -42,7 +42,17 @@ public class MedioDeAlojamiento {
 		this.valorBaseNoche = valorBaseNoche;
 	}
 	
+	//Método SubTotal el cual devuelve el subtotal a cancelar
 	
+	public double Calculo_Subtotal (int cant_noches, double valorBaseNoche) {
+		
+		double subtotal = 0;
+		subtotal = cant_noches * valorBaseNoche;
+		return subtotal;
+		
+		
+		
+	}
 	
 
 }

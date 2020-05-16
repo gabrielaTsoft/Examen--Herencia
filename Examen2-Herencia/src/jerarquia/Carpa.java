@@ -16,7 +16,7 @@ public class Carpa extends MedioDeAlojamiento {
 
 
 	public Carpa(DatosCliente cliente, int cant_noches, String[] tipo_temporada, double valorBaseNoche) {
-		super(cliente, cant_noches, tipo_temporada, valorBaseNoche);
+		super(cliente, cant_noches, tipo_temporada, valorBaseNoche);//Constructor
 		// TODO Auto-generated constructor stub
 	}
 
