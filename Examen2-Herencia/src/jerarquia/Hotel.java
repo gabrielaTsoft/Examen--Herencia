@@ -21,8 +21,8 @@ public class Hotel extends Hospederia {
 		this.cant_noches = cant_noches;
 	}
 
-	public Hotel(DatosCliente cliente, int cant_noches, String[] tipo_temporada, double valorBaseNoche) {
-		super(cliente, cant_noches, tipo_temporada, valorBaseNoche);//Constructor
+	public Hotel(DatosCliente cliente, int cant_noches, String[] tipo_temporada, double valorBaseNoche, String nombreMedio) {
+		super(cliente, cant_noches, tipo_temporada, valorBaseNoche,nombreMedio);//Constructor
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -32,9 +32,11 @@ public class Hotel extends Hospederia {
 			
 			double adicional =0;
 			
-			if (this.esFumador && this.conDesayuno== true) {
+			if (this.isEsFumador() && this.isConDesayuno()== true) {
 				
 				adicional = (Calculo_Subtotal(cant_noches,valorBaseNoche)*30) /100;
+				this.cant_noches = this.getCant_noches() +2;
+				
 			}
 			
 			return adicional;
