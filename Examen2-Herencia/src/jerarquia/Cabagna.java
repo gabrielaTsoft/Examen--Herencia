@@ -50,4 +50,14 @@ public class Cabagna extends Hospederia {
 		}
 	}
 
+
+	@Override
+	public double totalAPagar() {
+		double totalAPagar=0;		
+		totalAPagar = super.calculoSubtotal() + super.bonoDescuento();
+		return totalAPagar;
+	}
+	
+	
+
 }

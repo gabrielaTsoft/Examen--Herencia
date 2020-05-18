@@ -30,16 +30,6 @@ public class MediosAlojamiento {
 	}
 
 
-	/*public int buscarMedioAlojamiento (String nombre) {
-		
-		for (int i=0;i< alojamiento.size();i++) {			
-			if(alojamiento.get(i).getNombreMedio().compareToIgnoreCase(nombre)==0) {				
-				return i;					
-			}			
-		}				
-		return -1;			
-	}*/
-		
 	public void ingresarCarpa(Carpa carpa){
 		if(this.buscarCliente(carpa.getCliente().getRut()) == -1){
 			alojamiento.add(carpa);
@@ -74,9 +64,7 @@ public class MediosAlojamiento {
 				mensaje = mensaje + 
 						"\nMedio de Alojamiento de tipo: Cabaña, en Temporada: "+ alojamiento.get(i).getTipo_temporada() + " " +
 						"\nValor Base: "+alojamiento.get(i).getValorBaseNoche();
-			}
-			
-				
+			}				
 		}
 		
 		return mensaje;
@@ -150,8 +138,9 @@ public class MediosAlojamiento {
 		return adicional + adicionalPorNoche;		
 	}
 	
-	public int totalBonoDescuento()
-	{	int total = 0;
+	public double totalBonoDescuento()
+	{	
+		double total = 0;
 		Carpa c = null;
 		Cabagna cg = null;
 		Hotel h = null;
@@ -159,17 +148,17 @@ public class MediosAlojamiento {
 		for(int i=0;i < alojamiento.size(); i++){
 			if(alojamiento.get(i) instanceof Carpa){
 			c = (Carpa) alojamiento.get(i);
-			total =(int) (c.calculoSubtotal() - c.bonoDescuento());   
+			total =c.calculoSubtotal() - c.bonoDescuento();   
 			}
 			else if(alojamiento.get(i) instanceof Hotel)
 			{
 				h = (Hotel) alojamiento.get(i);
-				total = (int) (h.calculoSubtotal() - h.bonoDescuento());
+				total = h.calculoSubtotal() - h.bonoDescuento();
 			}
 			else
 			 {
 				cg = (Cabagna) alojamiento.get(i);
-				total =(int) (cg.calculoSubtotal() - cg.bonoDescuento());
+				total =cg.calculoSubtotal() - cg.bonoDescuento();
 			 }			
 	}
 	return total;
@@ -205,14 +194,35 @@ public class MediosAlojamiento {
 			}			
 		}
 
-		return contador;
-		
+		return contador;		
 	}
 	
-	//validar
-	public int ValorCancelarPorCliente(String rut)
-	{	int valorCancelar;
-		Hotel hotel=null;
+	
+	public double ValorCancelarPorCliente(String rut)
+	{	
+		Hotel h= null;
+		Cabagna cb =null;
+		Carpa c =null;
+		double totalCancelar = 0;
+		for (int i=0;i< alojamiento.size();i++) {
+			if (alojamiento.get(i).getCliente().getRut().equalsIgnoreCase(rut)) {
+				if (alojamiento.get(i) instanceof Hotel) {
+					h = (Hotel) alojamiento.get(i);
+					totalCancelar = h.totalAPagar() ;
+				}
+				else if (alojamiento.get(i) instanceof Cabagna){
+					cb = (Cabagna) alojamiento.get(i);
+					totalCancelar = c.totalAPagar() ;
+				}
+				else {
+					c = (Carpa) alojamiento.get(i);
+					totalCancelar = cb.totalAPagar() ;
+				}				
+			}
+		}
+		return totalCancelar;
+	}
+		/*Hotel hotel=null;
 		Cabagna cabagna=null;
 		Carpa carpa= null;
 		MedioDeAlojamiento ma =null;
@@ -238,10 +248,10 @@ public class MediosAlojamiento {
 				else
 				{
 					System.out.println("El cliente no existe");
-				}*/
+				}
 			}
 		
 		return valorCancelar=0;
-	}
+	}*/
 	
 }

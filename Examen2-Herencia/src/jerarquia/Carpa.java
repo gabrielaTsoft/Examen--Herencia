@@ -37,6 +37,14 @@ public class Carpa extends MedioDeAlojamiento {
 		}
 	}
 
+
+	@Override
+	public double totalAPagar() {
+		double totalAPagar=0;		
+		totalAPagar = super.calculoSubtotal() + super.bonoDescuento();
+		return totalAPagar;
+	}
+
 	
 	
 

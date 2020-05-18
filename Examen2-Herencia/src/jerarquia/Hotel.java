@@ -49,7 +49,17 @@ public class Hotel extends Hospederia {
 			return valorCancelar;
 		}
 		return valorCancelar;
+	}
+
+	@Override
+	public double totalAPagar() {
+		double totalAPagar=0;
+		// TODO Auto-generated method stub
+		totalAPagar = super.calculoSubtotal() + super.bonoDescuento() -ValorAdicional ();
+		
+		return totalAPagar;
 	}		
+	
 	
 
 }

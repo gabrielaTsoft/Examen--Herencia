@@ -21,8 +21,8 @@ public class App {
 		System.out.println("3) Mostrar Datos de un Cliente");
 		System.out.println("4) Total Adicional");
 		System.out.println("5) Total bono descuento");
-		/*System.out.println("6) Total de descuentos (calzados formal hombre y mujer");
-		System.out.println("7) Salir");*/
+		System.out.println("6) Cantidad medios de alojamiento ");
+		System.out.println("7) Valor a cancelar por un cliente");
 		System.out.println("\nIngrese una opción para comenzar...");
 
 		return Leer.datoInt();
@@ -84,7 +84,7 @@ public class App {
 					
 						System.out.println("¿Cantidad de Personas?");
 						int cant_personas = Leer.datoInt();
-						medios.ingresarCarpa(new Carpa(new DatosCliente(nombre_Cliente, rutCliente), cant_personas, tem, cant_personas, cant_personas));
+						medios.ingresarCarpa(new Carpa(new DatosCliente(nombre_Cliente, rutCliente), cant_noches, tem,valorBase,cant_personas));
 						nombreMedio="Carpa";
 					}
 					
@@ -108,8 +108,7 @@ public class App {
 						boolean chimenea = Leer.datoBoolean();
 						medios.ingresarCabagna(new Cabagna(new DatosCliente(nombre_Cliente, rutCliente), cant_noches, tem, valorBase,capacidad, esfumador, chimenea));
 						nombreMedio="Cabaña";
-					}				
-													
+					}																
 				}
 				else {
 					System.out.println("Medio de Alojamiento ya existe para este cliente");
@@ -129,17 +128,21 @@ public class App {
 			case 5:				
 				System.out.println("\nTotal bono descuento: "+ medios.totalBonoDescuento());
 				break;
-			case 6:		
-				
+			case 6:						
 				int respuesta;				
 				System.out.println("\n¿ingrese Medio de Alojamiento a buscar:   1) Carpa   2)Hotel    3) Cabaña?");					
 				respuesta = Leer.datoInt(); // 1				
 				System.out.println("\nLa Cant es: " + medios.cantMediosAlojamiento(respuesta));					
 				break;	
+			case 7:		
+				System.out.println("\n Ingrese el Rut del cliente: ");
+				String rut_cliente= Leer.dato();
+				System.out.println("\nValor a cancelar : " + medios.ValorCancelarPorCliente(rut_cliente));
+				break;
 			}
 			
 			
-		} while (opcion != 7); // Para salirnos el valor debe ser false
+		} while (opcion != 9); // Para salirnos el valor debe ser false
 
 	}
 

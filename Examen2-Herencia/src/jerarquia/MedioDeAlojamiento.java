@@ -1,15 +1,12 @@
 package jerarquia;
 
-public class MedioDeAlojamiento {
+public abstract class MedioDeAlojamiento {
 	
 	protected DatosCliente cliente;
 	protected int cant_noches;
 	protected String tipo_temporada ;
 	protected double valorBaseNoche;
-	protected String nombreMedio;
 	
-	
-
 	
 	public DatosCliente getCliente() {
 		return cliente;
@@ -43,9 +40,6 @@ public class MedioDeAlojamiento {
 		this.valorBaseNoche = valorBaseNoche;
 	}
 
-
-
-	
 	//Constructor
 	public MedioDeAlojamiento(DatosCliente cliente, int cant_noches, String tipo_temporada, double valorBaseNoche) {
 		
@@ -58,28 +52,29 @@ public class MedioDeAlojamiento {
 	
 	//Método SubTotal el cual devuelve el subtotal a cancelar
 	
-	public double calculoSubtotal () {
+	public double calculoSubtotal () {	
+
+		double subtotal=0;
+		subtotal = this.valorBaseNoche *this.cant_noches;
+		return subtotal	;	
 		
-		return this.getValorBaseNoche()* this.getCant_noches();			
 	}
 		
-	public int bonoDescuento() {		
-		int bonoDescuento = 0;		
-		
+	public double bonoDescuento() {		
+		double bonoDescuento = 0;			
 		if(this.tipo_temporada.equalsIgnoreCase("baja"))
 		{
-			bonoDescuento = (int) (this.calculoSubtotal()*25)/100;
+			bonoDescuento = this.calculoSubtotal()*25/100;
 		}
 		else if (this.tipo_temporada.equalsIgnoreCase("media"))
 		{
-				bonoDescuento = (int) (this.calculoSubtotal()*12.5)/100;
+				bonoDescuento = this.calculoSubtotal()*12.5/100;
 		}
-		else bonoDescuento = 0;
+		else bonoDescuento = 0;	
 		
-		return bonoDescuento; 
-		
+		return bonoDescuento; 		
 	}
 
-	
+	public abstract double totalAPagar();	
 
 }

@@ -31,6 +31,13 @@ public class Hospederia extends MedioDeAlojamiento{
 		this.capacidad = capacidad;
 		this.esFumador = esFumador;
 	}
+
+
+	@Override
+	public double totalAPagar() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 		
 	
