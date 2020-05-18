@@ -72,6 +72,7 @@ public class App {
 					String tem = Leer.dato();	
 					
 					int respuesta;
+					String nombreMedio;
 					
 					do {
 						System.out.println("\n¿El Medio de Alojamiento es:  1) Carpa   2)Hotel    3) Cabaña?");
@@ -84,9 +85,10 @@ public class App {
 						System.out.println("¿Cantidad de Personas?");
 						int cant_personas = Leer.datoInt();
 						medios.ingresarCarpa(new Carpa(new DatosCliente(nombre_Cliente, rutCliente), cant_personas, tem, cant_personas, cant_personas));
+						nombreMedio="Carpa";
 					}
 					
-					if (respuesta == 2) {
+					else if (respuesta == 2) {
 						
 						System.out.println("¿Capacidad");
 						int capacidad = Leer.datoInt();						
@@ -94,8 +96,8 @@ public class App {
 						boolean esfumador = Leer.datoBoolean();
 						System.out.println("¿Con Desayuno? true/false");
 						boolean desayuno = Leer.datoBoolean();
-						//medios.ingresarHotel(new Hotel(new DatosCliente(nombre_Cliente, rut_Cliente), cant_noches, tem, valorBase, nombreMedioAlojamiento,capacidad, esfumador,desayuno));
-						
+						medios.ingresarHotel(new Hotel(new DatosCliente(nombre_Cliente, rutCliente), cant_noches, tem, valorBase,capacidad, esfumador,desayuno));
+						nombreMedio="Hotel";
 					}
 					else{
 						System.out.println("¿Capacidad");
@@ -104,7 +106,8 @@ public class App {
 						boolean esfumador = Leer.datoBoolean();
 						System.out.println("¿Con Chimenea? true/false");
 						boolean chimenea = Leer.datoBoolean();
-						//medios.ingresarCabagna(new Cabagna(new DatosCliente(nombre_Cliente, rut_Cliente), cant_noches, tem, valorBase, nombreMedioAlojamiento,capacidad, esfumador, chimenea));
+						medios.ingresarCabagna(new Cabagna(new DatosCliente(nombre_Cliente, rutCliente), cant_noches, tem, valorBase,capacidad, esfumador, chimenea));
+						nombreMedio="Cabaña";
 					}				
 													
 				}
@@ -112,10 +115,10 @@ public class App {
 					System.out.println("Medio de Alojamiento ya existe para este cliente");
 				}
 				break;
-			/*case 2:						
+			case 2:						
 				System.out.println(medios.mostrarMediosAlojamiento());
 				break;				
-			case 3:
+			/*case 3:
 				System.out.println("\n Ingrese el Rut del cliente: ");
 				String rut= Leer.dato();
 				System.out.println(medios.mostrarDatosCliente(rut));

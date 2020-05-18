@@ -61,10 +61,22 @@ public class MediosAlojamiento {
 	public String mostrarMediosAlojamiento(){
 		String mensaje = "";		
 		for(int i=0;i< alojamiento.size();i++){
-			
+			if (alojamiento.get(i) instanceof Carpa) {
 				mensaje = mensaje + 
-						"\nTemporada: "+ alojamiento.get(i).getTipo_temporada() + " " +
+						"\nMedio de Alojamiento de tipo: Carpa, en Temporada: "+ alojamiento.get(i).getTipo_temporada() + " " +
 						"\nValor Base: "+alojamiento.get(i).getValorBaseNoche();
+			}else if (alojamiento.get(i) instanceof Hotel) {
+				mensaje = mensaje + 
+						"\nMedio de Alojamiento de tipo: Hotel, en Temporada: "+ alojamiento.get(i).getTipo_temporada() + " " +
+						"\nValor Base: "+alojamiento.get(i).getValorBaseNoche();
+			}
+			else {
+				mensaje = mensaje + 
+						"\nMedio de Alojamiento de tipo: Cabaña, en Temporada: "+ alojamiento.get(i).getTipo_temporada() + " " +
+						"\nValor Base: "+alojamiento.get(i).getValorBaseNoche();
+			}
+			
+				
 		}
 		
 		return mensaje;
