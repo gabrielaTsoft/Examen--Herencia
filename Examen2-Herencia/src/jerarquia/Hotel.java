@@ -17,7 +17,7 @@ public class Hotel extends Hospederia {
 
 		public double ValorAdicional () {		
 				
-			double adicional;			
+			double adicional;				
 			adicional= super.calculoSubtotal()*30/100;	
 			return adicional;
 		}

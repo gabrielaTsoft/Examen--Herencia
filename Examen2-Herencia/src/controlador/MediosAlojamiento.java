@@ -119,7 +119,7 @@ public class MediosAlojamiento {
 							 "\nEs Fumador: "+ cabagna.isEsFumador()+
 							 "\nChimenea: "+ cabagna.isChimenea();
 				}
-				else if (alojamiento.get(i) instanceof Carpa) {
+				else {
 					carpa = (Carpa) alojamiento.get(i);
 					mensaje = mensaje + "\nCapacidad: "+carpa.getCantidadPersonas();
 				}					
@@ -133,18 +133,21 @@ public class MediosAlojamiento {
 	public double calcularAdicional() {		
 		
 		double adicional=0;
+		double adicionalPorNoche=0;
 			//fijarse en el metodo stock del calzado.... se deben sumar el costo de las dos noches al subtotal.
 		for(int i=0; i< alojamiento.size();i++) {
 			if (alojamiento.get(i) instanceof Hotel){
 				hotel = (Hotel) alojamiento.get(i);			
-				if (hotel.isEsFumador() && hotel.isEsFumador()==true) {					
-					adicional =  hotel.ValorAdicional();
-					cantidadNoches= hotel.getCant_noches() +2;					
+				if (hotel.isEsFumador() && hotel.isConDesayuno()==true) {					
+					adicional =  hotel.ValorAdicional();// Almacena el valor del 30% del subtotal
+					hotel.setCant_noches(hotel.getCant_noches() +2);
+					//cantidadNoches= hotel.getCant_noches() +2;
+					adicionalPorNoche = hotel.getCant_noches()*hotel.getValorBaseNoche();
 				}		
 			}	
 		}
 					
-		return adicional;		
+		return adicional + adicionalPorNoche;		
 	}
 	
 	public int totalBonoDescuento()

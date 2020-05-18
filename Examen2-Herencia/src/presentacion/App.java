@@ -118,16 +118,15 @@ public class App {
 			case 2:						
 				System.out.println(medios.mostrarMediosAlojamiento());
 				break;				
-			/*case 3:
+			case 3:
 				System.out.println("\n Ingrese el Rut del cliente: ");
 				String rut= Leer.dato();
 				System.out.println(medios.mostrarDatosCliente(rut));
 				break;
 			case 4:				
-				System.out.println("\n Total Adicional: " + medios.calcularAdicional());
-				System.out.println("\n Cantidad de Noches: " + medios.cantidadNoches);
+				System.out.println("\n Total Adicional: " + medios.calcularAdicional());				
 				break;	
-			case 5:				
+			/*case 5:				
 				System.out.println("\nTotal bono descuento: "+ medios.totalBonoDescuento());
 				break;
 			case 6:		
