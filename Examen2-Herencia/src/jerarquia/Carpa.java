@@ -14,12 +14,30 @@ public class Carpa extends MedioDeAlojamiento {
 		this.cantidadPersonas = cantidadPersonas;
 	}
 
-
-	public Carpa(DatosCliente cliente, int cant_noches, String[] tipo_temporada, double valorBaseNoche,String nombreMedio) {
-		super(cliente, cant_noches, tipo_temporada, valorBaseNoche, nombreMedio);//Constructor
-		// TODO Auto-generated constructor stub
+	public Carpa(DatosCliente cliente, int cant_noches, String tipo_temporada, double valorBaseNoche,
+			int cantidadPersonas) {
+		super(cliente, cant_noches, tipo_temporada, valorBaseNoche);
+		this.cantidadPersonas = cantidadPersonas;
 	}
 
+	public int valorACancelar()
+	{
+		int valorCancelar = 0;
+		if(this.bonoDescuento() ==1 || this.bonoDescuento() == 2)
+		{
+			valorCancelar = (int) (this.calculoSubtotal() - this.bonoDescuento());
+			System.out.println("El total con descuentos incluidos es de: " + this.valorACancelar());
+			return valorCancelar;
+		}
+		else
+		{
+			valorCancelar = (int) this.calculoSubtotal();
+			System.out.println("El total a cancelar es de: "+ this.valorACancelar());
+			return valorCancelar;
+		}
+	}
+
+	
 	
 
 }

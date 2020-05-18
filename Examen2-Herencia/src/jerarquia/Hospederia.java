@@ -3,8 +3,7 @@ package jerarquia;
 public class Hospederia extends MedioDeAlojamiento{
 	
 	protected int capacidad;
-	protected boolean esFumador;
-	
+	protected boolean esFumador;	
 	
 
 	public int getCapacidad() {
@@ -26,14 +25,14 @@ public class Hospederia extends MedioDeAlojamiento{
 	}
 
 
-
-
-	public Hospederia(DatosCliente cliente, int cant_noches, String[] tipo_temporada, double valorBaseNoche,String nombreMedio) {
-		super(cliente, cant_noches, tipo_temporada, valorBaseNoche,nombreMedio);//Constructor
-		// TODO Auto-generated constructor stub
+	public Hospederia(DatosCliente cliente, int cant_noches, String tipo_temporada, double valorBaseNoche,
+			int capacidad, boolean esFumador) {
+		super(cliente, cant_noches, tipo_temporada, valorBaseNoche);
+		this.capacidad = capacidad;
+		this.esFumador = esFumador;
 	}
 	
-	
+		
 	
 
 }

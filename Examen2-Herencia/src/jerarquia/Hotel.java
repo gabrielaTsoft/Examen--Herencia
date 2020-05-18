@@ -2,10 +2,11 @@ package jerarquia;
 
 public class Hotel extends Hospederia {
 	
-	protected boolean conDesayuno;
-	protected int cant_noches;	
-	
-	public boolean isConDesayuno() {
+	protected boolean conDesayuno;		
+		
+	// Método adicional 	
+
+		public boolean isConDesayuno() {
 		return conDesayuno;
 	}
 
@@ -13,34 +14,42 @@ public class Hotel extends Hospederia {
 		this.conDesayuno = conDesayuno;
 	}
 
-	public int getCant_noches() {
-		return cant_noches;
-	}
 
-	public void setCant_noches(int cant_noches) {
-		this.cant_noches = cant_noches;
-	}
-
-	public Hotel(DatosCliente cliente, int cant_noches, String[] tipo_temporada, double valorBaseNoche, String nombreMedio) {
-		super(cliente, cant_noches, tipo_temporada, valorBaseNoche,nombreMedio);//Constructor
-		// TODO Auto-generated constructor stub
-	}
-	
-	// Método adicional 
-	
-		public double ValorAdicional () {
-			
-			double adicional =0;
-			
-			if (this.isEsFumador() && this.isConDesayuno()== true) {
+		public double ValorAdicional () {		
 				
-				adicional = (Calculo_Subtotal(cant_noches,valorBaseNoche)*30) /100;
-				this.cant_noches = this.getCant_noches() +2;
-				
-			}
-			
+			double adicional;			
+			adicional= super.calculoSubtotal()*30/100;	
 			return adicional;
 		}
+
+	
+	public Hotel(DatosCliente cliente, int cant_noches, String tipo_temporada, double valorBaseNoche,
+			 int capacidad, boolean esFumador, boolean conDesayuno) {
+		super(cliente, cant_noches, tipo_temporada, valorBaseNoche, capacidad, esFumador);
+		this.conDesayuno = conDesayuno;
+	}
+
+	//Validar este metodo
+	public int valorACancelar()
+	{
+		int valorCancelar = 0;
+		if(this.bonoDescuento() ==1 || this.bonoDescuento() == 2)
+		{
+			if(this.ValorAdicional()>1)
+			{
+				valorCancelar = (int) (this.calculoSubtotal() - this.bonoDescuento());
+				System.out.println("El total con descuentos incluidos es de: " + this.valorACancelar());
+				return valorCancelar;
+			}
+		}
+		else
+		{
+			valorCancelar = (int) this.calculoSubtotal();
+			System.out.println("El total a cancelar es de: "+ this.valorACancelar());
+			return valorCancelar;
+		}
+		return valorCancelar;
+	}		
 	
 
 }

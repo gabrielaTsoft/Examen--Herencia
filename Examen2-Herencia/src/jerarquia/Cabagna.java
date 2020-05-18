@@ -14,24 +14,40 @@ public class Cabagna extends Hospederia {
 		this.chimenea = chimenea;
 	}
 
-
-	public Cabagna(DatosCliente cliente, int cant_noches, String[] tipo_temporada, double valorBaseNoche, String nombreMedio) {
-		super(cliente, cant_noches, tipo_temporada, valorBaseNoche,nombreMedio); //Constructor
-		// TODO Auto-generated constructor stub
-	}	
 	
+	
+	public Cabagna(DatosCliente cliente, int cant_noches, String tipo_temporada, double valorBaseNoche,
+			int capacidad, boolean esFumador, boolean chimenea) {
+		super(cliente, cant_noches, tipo_temporada, valorBaseNoche, capacidad, esFumador);
+		this.chimenea = chimenea;
+	}
+
+
 	//Método incrementaValorBase
 	
-	public double ValorBase() {
-		
-		double ValorBase =0;
-		
-		if (this.getCapacidad() > 5) {
-			
-			ValorBase = (this.getValorBaseNoche()*18 )/100;
-			
+	public double ValorBase() {		
+		double ValorBase =0;		
+		if (this.getCapacidad() > 5) {			
+			ValorBase = (this.getValorBaseNoche()*18 )/100;			
 		}
 		return ValorBase;
+	}
+	
+	public int valorACancelar()
+	{
+		int valorCancelar = 0;
+		if(this.bonoDescuento() ==1 || this.bonoDescuento() == 2)
+		{
+			valorCancelar = (int) (this.calculoSubtotal() - this.bonoDescuento());
+			System.out.println("El total con descuentos incluidos es de: " + this.valorACancelar());
+			return valorCancelar;
+		}
+		else
+		{
+			valorCancelar = (int) this.calculoSubtotal();
+			System.out.println("El total a cancelar es de: "+ this.valorACancelar());
+			return valorCancelar;
+		}
 	}
 
 }

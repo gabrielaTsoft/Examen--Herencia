@@ -4,9 +4,10 @@ public class MedioDeAlojamiento {
 	
 	protected DatosCliente cliente;
 	protected int cant_noches;
-	protected String [] tipo_temporada = {"Media","Baja","Alta"};
+	protected String tipo_temporada ;
 	protected double valorBaseNoche;
 	protected String nombreMedio;
+	
 	
 
 	
@@ -26,11 +27,11 @@ public class MedioDeAlojamiento {
 		this.cant_noches = cant_noches;
 	}
 
-	public String[] getTipo_temporada() {
+	public String getTipo_temporada() {
 		return tipo_temporada;
 	}
 
-	public void setTipo_temporada(String[] tipo_temporada) {
+	public void setTipo_temporada(String tipo_temporada) {
 		this.tipo_temporada = tipo_temporada;
 	}
 
@@ -42,35 +43,43 @@ public class MedioDeAlojamiento {
 		this.valorBaseNoche = valorBaseNoche;
 	}
 
-	public String getNombreMedio() {
-		return nombreMedio;
-	}
 
-	public void setNombreMedio(String nombreMedio) {
-		this.nombreMedio = nombreMedio;
-	}
 
+	
 	//Constructor
-	public MedioDeAlojamiento(DatosCliente cliente, int cant_noches, String[] tipo_temporada, double valorBaseNoche, String nombreMedio) {
+	public MedioDeAlojamiento(DatosCliente cliente, int cant_noches, String tipo_temporada, double valorBaseNoche) {
 		
 		this.cliente = cliente;
 		this.cant_noches = cant_noches;
 		this.tipo_temporada = tipo_temporada;
 		this.valorBaseNoche = valorBaseNoche;
-		this.nombreMedio = nombreMedio;
+		
 	}
 	
 	//Método SubTotal el cual devuelve el subtotal a cancelar
 	
-	public double Calculo_Subtotal (int cant_noches, double valorBaseNoche) {
+	public double calculoSubtotal () {
 		
-		double subtotal = 0;
-		subtotal = cant_noches * valorBaseNoche;
-		return subtotal;
+		return this.getValorBaseNoche()*this.getCant_noches();			
+	}
 		
+	public int bonoDescuento() {		
+		int bonoDescuento = 0;		
 		
+		if(this.tipo_temporada.equalsIgnoreCase("baja"))
+		{
+			bonoDescuento = (int) (this.calculoSubtotal()*25)/100;
+		}
+		else if (this.tipo_temporada.equalsIgnoreCase("media"))
+		{
+				bonoDescuento = (int) (this.calculoSubtotal()*12.5)/1000;
+		}
+		else bonoDescuento = 0;
+		
+		return bonoDescuento; 
 		
 	}
+
 	
 
 }
