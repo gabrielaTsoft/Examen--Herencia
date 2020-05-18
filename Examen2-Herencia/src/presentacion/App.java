@@ -126,14 +126,16 @@ public class App {
 			case 4:				
 				System.out.println("\n Total Adicional: " + medios.calcularAdicional());				
 				break;	
-			/*case 5:				
+			case 5:				
 				System.out.println("\nTotal bono descuento: "+ medios.totalBonoDescuento());
 				break;
 			case 6:		
-				System.out.println("\n Ingrese el Medio de alojamiento: ");
-				String medioAlojamiento= Leer.dato();
-				System.out.println("\nCantidad medios de alojamiento: "+ medios.cantMediosAlojamiento(medioAlojamiento));
-				break;	*/
+				
+				int respuesta;				
+				System.out.println("\n¿ingrese Medio de Alojamiento a buscar:   1) Carpa   2)Hotel    3) Cabaña?");					
+				respuesta = Leer.datoInt(); // 1				
+				System.out.println("\nLa Cant es: " + medios.cantMediosAlojamiento(respuesta));					
+				break;	
 			}
 			
 			

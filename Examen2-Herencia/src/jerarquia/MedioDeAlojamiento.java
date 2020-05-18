@@ -60,7 +60,7 @@ public class MedioDeAlojamiento {
 	
 	public double calculoSubtotal () {
 		
-		return this.getValorBaseNoche()*this.getCant_noches();			
+		return this.getValorBaseNoche()* this.getCant_noches();			
 	}
 		
 	public int bonoDescuento() {		
@@ -72,7 +72,7 @@ public class MedioDeAlojamiento {
 		}
 		else if (this.tipo_temporada.equalsIgnoreCase("media"))
 		{
-				bonoDescuento = (int) (this.calculoSubtotal()*12.5)/1000;
+				bonoDescuento = (int) (this.calculoSubtotal()*12.5)/100;
 		}
 		else bonoDescuento = 0;
 		

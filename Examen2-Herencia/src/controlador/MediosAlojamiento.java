@@ -176,20 +176,38 @@ public class MediosAlojamiento {
 	}
 	
 	
-	/*public int cantMediosAlojamiento(String medioAlojamiento) {
+	public int cantMediosAlojamiento(int tipo) {
 		
-		int contador = 0;
+		int contador=0;
 		
-		for (int i=0; i< alojamiento.size();i++) {
-			
-			if (alojamiento.get(i).getNombreMedio().equalsIgnoreCase(medioAlojamiento)) {
-				contador= contador + 1;
+		if (tipo ==1) {
+			for (int i=0; i< alojamiento.size();i++) {
+				if (alojamiento.get(i) instanceof Carpa) {				
+					contador = contador +1;
+				}
 			}
-			
 		}
-		return cantidadNoches;
+			
+		else if (tipo==2) {
+			for (int j=0; j< alojamiento.size();j++) {
+				if (alojamiento.get(j) instanceof Hotel) {
+				
+					contador = contador +1;
+				}
+			}
+		}
+		else {
+			for (int k=0; k< alojamiento.size();k++) {
+				if (alojamiento.get(k) instanceof Cabagna) {
+				
+					contador = contador +1;
+				}
+			}			
+		}
+
+		return contador;
 		
-	}*/
+	}
 	
 	//validar
 	public int ValorCancelarPorCliente(String rut)
