@@ -20,7 +20,7 @@ public class Carpa extends MedioDeAlojamiento {
 		this.cantidadPersonas = cantidadPersonas;
 	}
 
-	public int valorACancelar()
+	/*public int valorACancelar()
 	{
 		int valorCancelar = 0;
 		if(this.bonoDescuento() ==1 || this.bonoDescuento() == 2)
@@ -35,13 +35,13 @@ public class Carpa extends MedioDeAlojamiento {
 			System.out.println("El total a cancelar es de: "+ this.valorACancelar());
 			return valorCancelar;
 		}
-	}
+	}*/
 
 
 	@Override
 	public double totalAPagar() {
 		double totalAPagar=0;		
-		totalAPagar = super.calculoSubtotal() + super.bonoDescuento();
+		totalAPagar = super.calculoSubtotal() - super.bonoDescuento();
 		return totalAPagar;
 	}
 

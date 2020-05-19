@@ -212,7 +212,7 @@ public class MediosAlojamiento {
 				}
 				else if (alojamiento.get(i) instanceof Cabagna){
 					cb = (Cabagna) alojamiento.get(i);
-					totalCancelar = c.totalAPagar() ;
+					totalCancelar = cb.totalAPagar() ;
 				}
 				else {
 					c = (Carpa) alojamiento.get(i);
@@ -222,36 +222,20 @@ public class MediosAlojamiento {
 		}
 		return totalCancelar;
 	}
-		/*Hotel hotel=null;
-		Cabagna cabagna=null;
-		Carpa carpa= null;
-		MedioDeAlojamiento ma =null;
-		
-		if(buscarCliente(rut)!=-1)
-		{
-			/*for(int i =0; i< alojamiento.size(); i++)
-			{
-				if(alojamiento.add(hotel) )
-				{	valorCancelar = hotel.valorACancelar();
-					System.out.println("El valor a cancelar por cliente es de: " +valorCancelar);
-					
-					if(alojamiento.add(carpa))
-					{	valorCancelar = carpa.valorACancelar();
-						System.out.println("El valor a cancelar por cliente es de: " +valorCancelar);
-						
-						if(alojamiento.add(cabagna))
-						{	valorCancelar = cabagna.valorACancelar();
-							System.out.println("El valor a cancelar por cliente es de: " +valorCancelar);
-						}
-					}
-				}
-				else
-				{
-					System.out.println("El cliente no existe");
+
+	public int incrementaValorBase() {
+		int valorBase=0;
+		Cabagna cb=null;
+		for (int i=0; i < alojamiento.size();i++) {
+			if (alojamiento.get(i) instanceof Cabagna) {
+				cb = (Cabagna) alojamiento.get(i);
+				if (cb.getCapacidad()>5) {
+					valorBase= (int) cb.incrementaValorBase();
 				}
 			}
+		}
+		return valorBase;
 		
-		return valorCancelar=0;
-	}*/
+	}
 	
 }

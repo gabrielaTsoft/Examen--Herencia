@@ -23,6 +23,7 @@ public class App {
 		System.out.println("5) Total bono descuento");
 		System.out.println("6) Cantidad medios de alojamiento ");
 		System.out.println("7) Valor a cancelar por un cliente");
+		System.out.println("8) Incremento del valor base");
 		System.out.println("\nIngrese una opción para comenzar...");
 
 		return Leer.datoInt();
@@ -138,6 +139,9 @@ public class App {
 				System.out.println("\n Ingrese el Rut del cliente: ");
 				String rut_cliente= Leer.dato();
 				System.out.println("\nValor a cancelar : " + medios.ValorCancelarPorCliente(rut_cliente));
+				break;
+			case 8:		
+				System.out.println("\n Incremento del Valor Base: " +medios.incrementaValorBase());				
 				break;
 			}
 			

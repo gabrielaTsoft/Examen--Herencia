@@ -55,7 +55,7 @@ public class Hotel extends Hospederia {
 	public double totalAPagar() {
 		double totalAPagar=0;
 		// TODO Auto-generated method stub
-		totalAPagar = super.calculoSubtotal() + super.bonoDescuento() -ValorAdicional ();
+		totalAPagar = super.calculoSubtotal() - super.bonoDescuento() +ValorAdicional ();
 		
 		return totalAPagar;
 	}		
