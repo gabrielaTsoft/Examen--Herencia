@@ -55,7 +55,7 @@ public abstract class MedioDeAlojamiento {
 	public double calculoSubtotal () {	
 
 		double subtotal=0;
-		subtotal = this.valorBaseNoche *this.cant_noches;
+		subtotal = this.valorBaseNoche * this.cant_noches;
 		return subtotal	;	
 		
 	}

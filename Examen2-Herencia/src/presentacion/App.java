@@ -126,7 +126,7 @@ public class App {
 				System.out.println("\n Total Adicional: " + medios.calcularAdicional());				
 				break;	
 			case 5:				
-				System.out.println("\nTotal bono descuento: "+ medios.totalBonoDescuento());
+				System.out.println(" "+ medios.totalBonoDescuento());
 				break;
 			case 6:						
 				int respuesta;				
