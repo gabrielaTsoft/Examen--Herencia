@@ -225,14 +225,14 @@ public class MediosAlojamiento {
 		return totalCancelar;
 	}
 
-	public int incrementaValorBase() {
-		int valorBase=0;
+	public double incrementaValorBase() {
+		double valorBase=0;
 		Cabagna cb=null;
 		for (int i=0; i < alojamiento.size();i++) {
 			if (alojamiento.get(i) instanceof Cabagna) {
 				cb = (Cabagna) alojamiento.get(i);
 				if (cb.getCapacidad()>5) {
-					valorBase= (int) cb.incrementaValorBase();
+					valorBase=  cb.incrementaValorBase();
 				}
 			}
 		}

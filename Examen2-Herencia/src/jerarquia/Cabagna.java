@@ -62,8 +62,8 @@ public class Cabagna extends Hospederia {
 	}
 	
 	public double incrementaValorBase() {
-		
-		capacidad = (int) (this.valorBaseNoche)*18/100;
+		double capacidad=0;
+		capacidad = this.valorBaseNoche*18/100;
 		return capacidad;
 		
 	}
