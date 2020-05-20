@@ -61,6 +61,7 @@ public abstract class MedioDeAlojamiento {
 	}
 		
 	public double bonoDescuento() {		
+		
 		double bonoDescuento = 0;			
 		if(this.tipo_temporada.equalsIgnoreCase("baja"))
 		{

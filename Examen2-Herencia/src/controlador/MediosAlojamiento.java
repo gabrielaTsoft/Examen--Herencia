@@ -128,7 +128,7 @@ public class MediosAlojamiento {
 				hotel = (Hotel) alojamiento.get(i);			
 				if (hotel.isEsFumador() && hotel.isConDesayuno()==true) {					
 					adicional =  hotel.ValorAdicional();// Almacena el valor del 30% del subtotal
-					adicionalPorNoche = hotel.getCant_noches()*hotel.getValorBaseNoche();
+					adicionalPorNoche = hotel.getValorBaseNoche()*2;
 					hotel.setCant_noches(hotel.getCant_noches() +2);
 					//cantidadNoches= hotel.getCant_noches() +2;					
 				}		
@@ -144,21 +144,23 @@ public class MediosAlojamiento {
 		Carpa c = null;
 		Cabagna cb = null;
 		Hotel h = null;
+		
 	
 		for(int i=0;i < alojamiento.size(); i++){
 			if(alojamiento.get(i) instanceof Carpa){
 			c = (Carpa) alojamiento.get(i);
-			mensaje = "\nTotal Bono Descuento" + (c.calculoSubtotal() - c.bonoDescuento());
+			
+			mensaje = "\nTotal Bono Descuento: " +  c.bonoDescuento();
 			}
 			else if(alojamiento.get(i) instanceof Hotel)
 			{
 				h = (Hotel) alojamiento.get(i);
-				mensaje = "\nTotal Bono Descuento: " + (h.calculoSubtotal() - h.bonoDescuento());
+				mensaje = "\nTotal Bono Descuento: " + h.bonoDescuento();
 			}
 			else
 			 {
 				cb = (Cabagna) alojamiento.get(i);
-				mensaje = "\nTotal Bono Descuento" + (cb.calculoSubtotal() - cb.bonoDescuento());
+				mensaje = "\nTotal Bono Descuento: " +cb.bonoDescuento();
 			 }			
 	}
 	return mensaje;
