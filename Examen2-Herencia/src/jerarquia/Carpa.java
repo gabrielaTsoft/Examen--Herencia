@@ -40,8 +40,12 @@ public class Carpa extends MedioDeAlojamiento {
 
 	@Override
 	public double totalAPagar() {
-		double totalAPagar=0;		
-		totalAPagar = super.calculoSubtotal() - super.bonoDescuento();
+		double totalAPagar=0;	
+		double subtotal =0;
+		double bonoDcto =0;
+		subtotal = super.calculoSubtotal();
+		bonoDcto =super.bonoDescuento();
+		totalAPagar = subtotal -bonoDcto ;
 		return totalAPagar;
 	}
 

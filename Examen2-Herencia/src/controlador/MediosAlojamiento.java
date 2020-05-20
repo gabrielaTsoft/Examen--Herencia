@@ -218,7 +218,7 @@ public class MediosAlojamiento {
 				}
 				else {
 					c = (Carpa) alojamiento.get(i);
-					totalCancelar = cb.totalAPagar() ;
+					totalCancelar = c.totalAPagar() ;
 				}				
 			}
 		}
